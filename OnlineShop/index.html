@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Online Shopping</title>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="custom.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<style>
+		.addtocart{
+			border:none;
+			background-color: black;
+			color: white;
+			border-radius: 25px;
+		}
+	</style>
+</head>
+<body>
+	<h1 style="text-align: center;">Apple Online Shopping</h1>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<a class="navbar-brand">Apple</a>
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" href="index.html">Shop</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="checkout.html">Check Out(<span id="count"></span>)</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="about.html">About</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="contact.html">Contact</a>
+			</li>
+		</ul>
+	</nav>
+	<table cellpadding="15">
+		<tr>
+			<td>
+				<img src="images/11 pro max.png" width="180" height="250"><br>
+				<h4>Type: Phone</h4>
+				<h4>Model: Iphone 11Pro Max</h4>
+				<h4>Price: 2,028,600 MMK</h4>
+				<button class="addtocart" data-id="1" data-type="Phone" data-model="Iphone 11 pro Max" data-price="2028600" style="margin-left: 40px">Add to Cart</button>
+			</td>
+			<td>
+				<img src="images/11.jpg" width="180" height="250"><br>
+				<h4>Type: Phone</h4>
+				<h4>Model: Iphone 11</h4>
+				<h4>Price: 1,188,600 MMK</h4>
+				<button class="addtocart" data-id="2" data-type="Phone" data-model="Iphone 11" data-price="1188600" style="margin-left: 40px">Add to Cart</button>
+			</td>
+			<td>
+				<img src="images/Xs.webp" width="180" height="250"><br>
+				<h4>Type: Phone</h4>
+				<h4>Model: Iphone Xs</h4>
+				<h4>Price: 1,398,600 MMK</h4>
+				<button class="addtocart" data-id="3" data-type="Phone" data-model="Iphone Xs" data-price="1398600" style="margin-left: 40px">Add to Cart</button>
+			</td>
+			<td>
+				<img src="images/X.jpg" width="180" height="250"><br>
+				<h4>Type: Phone</h4>
+				<h4>Model: Iphone X</h4>
+				<h4>Price: 908,600 MMK</h4>
+				<button class="addtocart" data-id="4" data-type="Phone" data-model="Iphone X" data-price="908600" style="margin-left: 40px">Add to Cart</button>
+			</td>
+			<td>
+				<img src="images/8 plus.png" width="180" height="250"><br>
+				<h4>Type: Phone</h4>
+				<h4>Model: Iphone 8Plus</h4>
+				<h4>Price: 698,600 MMK</h4>
+				<button class="addtocart" data-id="5" data-type="Phone" data-model="Iphone 8Plus" data-price="698600" style="margin-left: 40px">Add to Cart</button>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="images/7.jpg" width="180" height="250"><br>
+				<h4>Type: Phone</h4>
+				<h4>Model: Iphone 7</h4>
+				<h4>Price: 558,600 MMK</h4>
+				<button class="addtocart" data-id="6" data-type="Phone" data-model="Iphone 7" data-price="558600" style="margin-left: 40px">Add to Cart</button>
+			</td>
+			<td>
+				<img src="images/6s.jpg" width="180" height="250"><br>
+				<h4>Type: Phone</h4>
+				<h4>Model: Iphone 6s</h4>
+				<h4>Price: 278,600 MMK</h4>
+				<button class="addtocart" data-id="7" data-type="Phone" data-model="Iphone 6s" data-price="278600" style="margin-left: 40px">Add to Cart</button>
+			</td>
+			<td>
+				<img src="images/w5.jfif" width="180" height="250"><br>
+				<h4>Type: Watch</h4>
+				<h4>Model: Iwatch 5</h4>
+				<h4>Price: 558,600 MMK</h4>
+				<button class="addtocart" data-id="8" data-type="Watch" data-model="Iwatch 5" data-price="558600" style="margin-left: 40px">Add to Cart</button>
+			</td>
+			<td>
+				<img src="images/w4.png" width="180" height="250"><br>
+				<h4>Type: Watch</h4>
+				<h4>Model: Iwatch 4</h4>
+				<h4>Price: 418,600 MMK</h4>
+				<button class="addtocart" data-id="9" data-type="Watch" data-model="Iwatch 4" data-price="418600" style="margin-left: 40px">Add to Cart</button>
+			</td>
+			<td>
+				<img src="images/w3.jpg" width="180" height="250"><br>
+				<h4>Type: Watch</h4>
+				<h4>Model: Iwatch 3</h4>
+				<h4>Price: 278,600 MMK</h4>
+				<button class="addtocart" data-id="10" data-type="Watch" data-model="Iwatch 3" data-price="278600" style="margin-left: 40px">Add to Cart</button>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="images/p pro.jpg" width="180" height="250"><br>
+				<h4>Type: Tablet</h4>
+				<h4>Model: Ipad Pro</h4>
+				<h4>Price: 1,118,600 MMK</h4>
+				<button class="addtocart" data-id="11" data-type="Tablet" data-model="Ipad Pro" data-price="1118600" style="margin-left: 40px">Add to Cart</button>
+			</td>
+			<td>
+				<img src="images/p air.jpg" width="180" height="250"><br>
+				<h4>Type: Tablet</h4>
+				<h4>Model: Ipad Air</h4>
+				<h4>Price: 698,600 MMK</h4>
+				<button class="addtocart" data-id="12" data-type="Tablet" data-model="Ipad Air" data-price="698600" style="margin-left: 40px">Add to Cart</button>
+			</td>
+			<td>
+				<img src="images/p mini.jpg" width="180" height="250"><br>
+				<h4>Type: Tablet</h4>
+				<h4>Model: Ipad Mini</h4>
+				<h4>Price: 558,600 MMK</h4>
+				<button class="addtocart" data-id="13" data-type="Tablet" data-model="Ipad Mini" data-price="558600" style="margin-left: 40px">Add to Cart</button>
+			</td>
+			<td>
+				<img src="images/mb pro.jpg" width="210" height="220"><br><br>
+				<h4>Type: Laptop</h4>
+				<h4>Model: Macbook Pro</h4>
+				<h4>Price: 3,918,600 MMK</h4>
+				<button class="addtocart" data-id="14" data-type="Laptop" data-model="Macbook Pro" data-price="3918600" style="margin-left: 40px">Add to Cart</button>
+			</td>
+			<td>
+				<img src="images/mb air.jpg" width="230" height="200"><br><br><br>
+				<h4>Type: Laptop</h4>
+				<h4>Model: Macbook Air</h4>
+				<h4>Price: 1,818,600 MMK</h4>
+				<button class="addtocart" data-id="15" data-type="Laptop" data-model="Macbook Air" data-price="1818600" style="margin-left: 40px">Add to Cart</button>
+			</td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			count();
+			$(".addtocart").click(function(){
+				var id=$(this).data("id");
+				var type=$(this).data("type");
+				var model=$(this).data("model");
+				var price=$(this).data("price");
+				var item={Id:id,Type:type,Model:model,Price:price,qty:1};
+				var shop_str=localStorage.getItem("I_shop");
+				var shop_arr;
+				if(shop_str==null){
+					shop_arr=Array();
+				}else {
+					shop_arr=JSON.parse(shop_str);
+				}
+				var status=false;
+				$.each(shop_arr,function(i,v){
+					if(id==v.Id){
+						status=true;
+						v.qty++;
+					}
+				})
+				if(!status){
+					shop_arr.push(item);
+				}
+				var shopData=JSON.stringify(shop_arr);
+				localStorage.setItem("I_shop",shopData);
+				count();
+			})
+		})
+	</script>
+</body>
+</html>

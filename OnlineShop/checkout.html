@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Online Shopping</title>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="custom.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<h1 style="text-align: center;">Apple Online Shopping</h1>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<a class="navbar-brand">Apple</a>
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" href="index.html">Shop</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="checkout.html">Check Out(<span id="count"></span>)</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="about.html">About</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="contact.html">Contact</a>
+			</li>
+		</ul>
+	</nav>
+	<h3>Checkout Table</h3>
+	<table border="1" cellspacing="0" cellpadding="15">
+		<thead>
+			<tr>
+				<th>No.</th>
+				<th>Type</th>
+				<th>Model</th>
+				<th>Price</th>
+				<th>Qty</th>
+				<th>Sub Total</th>
+			</tr>
+		</thead>
+		<tbody id="tbody">
+			
+		</tbody>
+	</table>
+	<button id="order">Order</button>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			count();
+			getData();
+			function getData(){
+				var shop_str=localStorage.getItem("I_shop");
+				if(shop_str){
+					shop_arr=JSON.parse(shop_str);
+					var html='';
+					var j=1;
+					var total=0;
+					$.each(shop_arr,function(i,v){
+						var qty =v.qty;
+						var price=v.Price;
+						var sub_total=qty*price;
+						html+=`<tr><td>${j++}</td><td>${v.Type}</td><td>${v.Model}</td><td>${v.Price}</td><td><button class="min" data-item_i="${i}">-</button>${v.qty}<button class="max" data-item_i="${i}">+</button></td><td>${sub_total}</td></tr>`
+						total += sub_total;
+					})
+					html+=`<tr><td colspan='5'>Total</td><td>${total}</td></tr>`
+					$("#tbody").html(html);
+				}else {
+					html='';
+					$("#tbody").html(html);
+				}
+			}
+			$("#tbody").on('click','.min',function(){
+				var item_i=$(this).data("item_i")
+				var shop_str=localStorage.getItem("I_shop");
+				if(shop_str){
+					var shop_arr=JSON.parse(shop_str);
+					$.each(shop_arr,function(i,v){
+						if (item_i==i){
+							v.qty--;
+							if(v.qty==0){
+								shop_arr.splice(item_i,1);
+							}
+						}
+						var shopData=JSON.stringify(shop_arr);
+						localStorage.setItem("I_shop",shopData);
+						count();
+						getData();
+					})
+				}
+			})
+			$("#tbody").on('click','.max',function(){
+				var item_i=$(this).data("item_i")
+				var shop_str=localStorage.getItem("I_shop");
+				if(shop_str){
+					var shop_arr=JSON.parse(shop_str);
+					$.each(shop_arr,function(i,v){
+						if (item_i==i){
+							v.qty++;
+						}
+						var shopData=JSON.stringify(shop_arr);
+						localStorage.setItem("I_shop",shopData);
+						count();
+						getData();
+					})
+				}
+			})
+			$("#order").click(function(){
+				localStorage.clear();
+				getData();
+				count();
+			})
+		})
+	</script>
+</body>
+</html>

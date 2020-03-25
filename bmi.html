@@ -1,0 +1,57 @@
+	<!DOCTYPE html>
+<html>
+<head>
+	<title>Body Mass Index</title>
+	<style>
+		div{
+			background-image: url(bmi.jpg);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<h1>Calculate Your Body Mass Index</h1>
+		<p>Body mass index (BMI) is a measure of body fat based on height and weight that applies to adult men and women. <br>
+			Enter your weight and height using standard measures. <br>
+		Select "Calcutate" and your BMI will appear below.</p>
+		<form name="BMI">
+			<label for="weight">Weight(lb)</label> <br>
+			<input type="number" name="weight" id="weight"><br>
+			<label for="height1">Height(ft)</label>
+			<label for="height2" style="margin-left: 150px">(inches)</label> <br>
+			<input type="number" name="height1" id="height1">
+			<input type="number" name="height2" id="height2"><br><br>
+			<button type="button" onclick="bmi()" style="margin-left: 150px">Calculate</button>
+			<h1 id="result">The result will appear in here.</h1>
+			<h1 id="result1"></h1>
+			<script type="text/javascript">
+				function bmi(){
+					var weight=document.BMI.weight.value;
+					var height1=document.BMI.height1.value*12;
+					var height2=document.BMI.height2.value;
+					var heights= parseInt(height1)+parseInt(height2);
+					var bmi= (parseInt(weight)/(parseInt(heights)*parseInt(heights)))*703;
+					var bmi1=bmi.toFixed(2);
+					var result=document.getElementById('result');
+					if(bmi1 < 18.5){
+						result.innerHTML="BMI="+bmi1;
+						result1.innerHTML="You are <ins>Underweight</ins> my friend.";
+					} else if (bmi1 > 18.4 && bmi1 < 25 ) {
+						result.innerHTML=bmi;result.innerHTML="BMI="+bmi1;
+						result1.innerHTML="You are <ins>Normal</ins> my friend.";
+					} else if (bmi1 > 24.9 && bmi1 < 30) {
+						result.innerHTML="BMI="+bmi1;
+						result1.innerHTML="You are <ins>Overweight</ins> my friend.";
+					} else {
+						result.innerHTML=bmi;result.innerHTML="BMI="+bmi1;
+						result1.innerHTML="<ins>Obesity</ins>";
+					}
+				}
+			</script>
+		</form>
+	</div>
+</body>
+</html>

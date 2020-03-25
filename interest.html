@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculation Mortgage Payments</title>
+</head>
+<body>
+	<form name="mpay">
+		<label for="prin">Principal</label>
+		<input type="number" id="prin" name="prin"><br><br>
+		<label for="rate">Rate</label>
+		<input type="text" id="rate" value="13%" readonly="yes" style="margin-left: 30px"><br><br>
+		<label for="year">Years</label>
+		<input type="number" id="year" name="year" style="margin-left: 23px"><br><br>
+		<button type="button" onclick="cal()" style="margin-left: 100px">Calculate</button><br><br>
+		<label for="month">Monthly Pay</label>
+		<input type="number" id="month" name="month" style="margin-left: 20px" readonly="yes"><br><br>
+		<label for="total">Total Interest</label>
+		<input type="number" id="total" name="total" readonly="yes" style="margin-left: 18px"><br><br>
+		<table border="1" cellpadding="15" cellspacing="0">
+			<thead>
+				<tr>
+					<th>Month No.</th>
+					<th>Principal</th>
+					<th>Interest</th>
+					<th>Payment</th>
+				</tr>
+			</thead>
+			<tbody id="tbody">
+				
+			</tbody>
+		</table>
+		<script type="text/javascript">
+			function cal(){
+				var p=document.mpay.prin.value;
+				var r=(0.13/12);
+				var n=document.mpay.year.value*12;
+				var r1=r*Math.pow((1+r),n);
+				var r2=Math.pow((1+r), n)-1;
+				var m=Math.round(p*(r1/r2));
+				var month=document.getElementById('month');
+				month.setAttribute("value",m);
+				var month=document.mpay.month.value;
+				var i1=p*r;
+				var p1=p-(m-i1);
+				var a=Math.round(p);
+				var b=Math.round(i1);
+				var i2=p1*r;
+				var p2=p1-(m-i2);
+				let num=1;
+				let num1=2;
+				document.getElementById("tbody").innerHTML+="<tr><td>"+num+"</td><td>"+a+"</td><td>"+b+"</td><td>"+month+"</td></tr>"
+				for (var i = 1;i<=n;i++){
+					if(true){
+						p=p1;
+						i2=i1;
+						i1=p*r;
+						p1=p-(m-i1);
+						i2=p1*r;
+					}
+					document.getElementById("tbody").innerHTML+="<tr><td>"+ num1++ +"</td><td>"+p.toFixed()+"</td><td>"+i1.toFixed()+"</td><td>"+month+"</td></tr>";
+					b += i1;
+					var total=document.getElementById('total');
+					total.setAttribute("value",b.toFixed());
+				}
+			}
+		</script>
+	</form>
+</body>
+</html>

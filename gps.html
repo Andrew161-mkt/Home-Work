@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gold Prices</title>
+	<style>
+		div{
+			background-image: url(gps.gif);
+			background-repeat: no-repeat;
+		}
+	</style>
+</head>
+<body>
+	<div>
+			<label for="gram">Gram</label>
+			<input type="number" id="gram" disabled="disabled"><br><br>
+			<label for="price">Price</label>
+			<input type="number" id="price" value="1215000" disabled="disabled"><br><br>
+			<button type="button" onclick="cal()" style="margin-left: 100px">Calculate</button><br><br>
+			<label for="kyat">Kyats</label>
+			<input type="number" id="kyat" disabled="disabled"><br><br>
+			<label for="pe">Pe</label>
+			<input type="number" id="pe" style="margin-left: 20px" disabled="disabled"><br><br>
+			<label for="yawy">Yway</label>
+			<input type="number" id="yway" disabled="disabled"><br><br>
+			<label for="total">Totals</label>
+			<input type="number" id="total" disabled="disabled">Kyats<br><br>
+			<script type="text/javascript">
+				var a=prompt("Enter Gold Gram");
+				var gram1=document.getElementById('gram');
+				gram1.setAttribute("value",a);
+				function cal(){
+					var k=parseInt(a/16.6);
+					var kyat=document.getElementById('kyat');
+					kyat.setAttribute("value",k);
+					var p=parseInt(((a/16.6)-k)*16);
+					var pe=document.getElementById('pe');
+					pe.setAttribute("value",p);
+					var y=((a/16.6)-k)*16;
+					var yw=parseInt((y-p)*8);
+					var yway=document.getElementById('yway');
+					yway.setAttribute("value",yw);
+					var t=((((yw/8)+p)/16)+k)*1215000;
+					var t1=parseInt(t);
+					var total=document.getElementById('total');
+					total.setAttribute("value",t1);
+				}
+			</script>
+	</div>
+</body>
+</html>
